@@ -38,17 +38,12 @@ FusionEKF::FusionEKF() {
   // measurement function H - radar
   // H_radar = Hj(x)
 
-  /**
-  TODO:
-    * Finish initializing the FusionEKF.
-    * Set the process and measurement noises
-  */
   // Initialize covariance matrix P
   ekf_.P_ = MatrixXd(4, 4);
   ekf_.P_ << 1, 0, 0, 0,
   		     0, 1, 0, 0,
-             0, 0, 1000, 0,
-             0, 0, 0, 1000;
+           0, 0, 1000, 0,
+           0, 0, 0, 1000;
 }
 
 /**
@@ -81,14 +76,6 @@ void FusionEKF::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
 
 
   if (!is_initialized_) {
-    /**
-    TODO:
-      * Initialize the state ekf_.x_ with the first measurement.
-      * Create the covariance matrix.
-      * Remember: you'll need to convert radar from polar to cartesian coordinates.
-    */
-    // first measurement
-
     // Initialize state x
     ekf_.x_ = VectorXd(4);
 
